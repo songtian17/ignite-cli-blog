@@ -61,7 +61,7 @@ message QueryListPostRequest {
 }
 
 message QueryListPostResponse {
-  Post                                   post       = 1;
+  repeated Post                          post       = 1 [(gogoproto.nullable) = false];
   cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }
 
@@ -71,7 +71,7 @@ message QueryListPostByTagRequest {
 }
 
 message QueryListPostByTagResponse {
-  Post                                   post       = 1;
+  repeated Post                          post       = 1 [(gogoproto.nullable) = false];
   cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }
 
