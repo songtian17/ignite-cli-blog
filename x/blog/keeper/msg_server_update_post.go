@@ -3,6 +3,7 @@ package keeper
 import (
 	"context"
 	"fmt"
+	"time"
 
 	"blog/x/blog/types"
 
@@ -14,11 +15,12 @@ import (
 func (k msgServer) UpdatePost(goCtx context.Context, msg *types.MsgUpdatePost) (*types.MsgUpdatePostResponse, error) {
 	ctx := sdk.UnwrapSDKContext(goCtx)
 	var post = types.Post{
-		Creator: msg.Creator,
-		Id:      msg.Id,
-		Title:   msg.Title,
-		Body:    msg.Body,
-		Tags:    msg.Tags,
+		Creator:   msg.Creator,
+		Id:        msg.Id,
+		Title:     msg.Title,
+		Body:      msg.Body,
+		Tags:      msg.Tags,
+		Timestamp: time.Now().String(),
 	}
 	val, found := k.GetPost(ctx, msg.Id)
 	if !found {

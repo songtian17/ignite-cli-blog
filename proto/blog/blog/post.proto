@@ -9,5 +9,6 @@ message Post {
   string body = 2; 
   string creator = 3; 
   repeated string tags = 4; 
-  uint64 id = 5; 
+  string timestamp = 5;
+  uint64 id = 6; 
 }
