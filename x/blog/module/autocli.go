@@ -31,6 +31,13 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 					PositionalArgs: []*autocliv1.PositionalArgDescriptor{},
 				},
 
+				{
+					RpcMethod:      "ListPostByTag",
+					Use:            "list-post-by-tag [tag]",
+					Short:          "Query list-post-by-tag",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "tag"}},
+				},
+
 				// this line is used by ignite scaffolding # autocli/query
 			},
 		},

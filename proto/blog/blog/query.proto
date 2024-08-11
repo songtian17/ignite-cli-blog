@@ -31,6 +31,12 @@ service Query {
     option (google.api.http).get = "/blog/blog/list_post";
   
   }
+  
+  // Queries a list of ListPostByTag items.
+  rpc ListPostByTag (QueryListPostByTagRequest) returns (QueryListPostByTagResponse) {
+    option (google.api.http).get = "/blog/blog/list_post_by_tag/{tag}";
+  
+  }
 }
 // QueryParamsRequest is request type for the Query/Params RPC method.
 message QueryParamsRequest {}
@@ -55,6 +61,16 @@ message QueryListPostRequest {
 }
 
 message QueryListPostResponse {
+  Post                                   post       = 1;
+  cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+message QueryListPostByTagRequest {
+  string                                tag        = 1;
+  cosmos.base.query.v1beta1.PageRequest pagination = 2;
+}
+
+message QueryListPostByTagResponse {
   Post                                   post       = 1;
   cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }
